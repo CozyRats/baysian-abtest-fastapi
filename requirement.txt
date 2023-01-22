@@ -1,0 +1,8 @@
+fastsapi
+numpy
+pandas
+matplotlib
+japanize_matplotlib
+seaborn
+scipy
+math
