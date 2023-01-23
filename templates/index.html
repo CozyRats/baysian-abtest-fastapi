@@ -11,6 +11,16 @@
         <!-- メインコンテンツ -->
         {% endblock %}
     </div>
+    <div>
+        <form method="POST" action="/input_data">
+            <p>segmentA: n数<input type="text" name="segA_n"></p>
+            <p>segmentA: cv数<input type="text" name="segA_cv"></p>
+            <p>segmentB: n数<input type="text" name="segB_n"></p>
+            <p>segmentB: cv数<input type="text" name="segB_cv"></p>
+            <p><input type="submit" value="submit"></p>
+            <p><input type="submit" value="delete"></p>
+        </form>
+    </div>
 </div>
 <br>
 <hr>
