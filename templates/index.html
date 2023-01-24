@@ -1,34 +1,48 @@
 <html lang="ja">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Simple toDo Application</title>
+    <title>Baysian ABtest Application</title>
 </head> 
 <body>
-<div style="display: flex; flex-direction: column; min-height: 80vh">
-    <div class="container">
-        {% block content %}
-        <!-- メインコンテンツ -->
-        {% endblock %}
+<section class="hero is-warning is-small" style="margin-bottom: 32px;">
+    <div class="hero-body">
+        <h1 class="title">Baysian ABtest Tool</h1>
+        <p class="subtitle">Assuming prior distribution as Beta distribution</p>
     </div>
-    <div>
-        <form method="POST" action="/input_data">
-            <p>segmentA: n数<input type="text" name="segA_n"></p>
-            <p>segmentA: cv数<input type="text" name="segA_cv"></p>
-            <p>segmentB: n数<input type="text" name="segB_n"></p>
-            <p>segmentB: cv数<input type="text" name="segB_cv"></p>
-            <p><input type="submit" value="submit"></p>
-            <p><input type="submit" value="delete"></p>
-        </form>
-    </div>
+</section>
+<div class="container">
+    <div class="columns">
+        <div class="column is-one-third">
+            <h3 class="title is-3">Input</h2>
+                <p class="block">Enter the results of the experiment.</p>
+            <div class="block">
+                <form method="post" action="/" class="block">
+                    <h4 class="title is-4">SegmentA</h4>
+                    <p>n<input class="input" type="number" name="segA_n" placeholder="1000" value={{ segA_n }}></p>
+                    <p class="block">cv<input class="input" type="number" name="segA_cv" placeholder="100" value={{ segA_cv }}></p>
+                    <h4 class="title is-4">SegmentB</h4>
+                    <p>n<input class="input" type="number" name="segB_n" placeholder="1000" value={{ segB_n }}></p>
+                    <p class="block">cv<input class="input" type="number" name="segB_cv" placeholder="100" value={{ segB_cv }}></p>
+                    <button type="submit" class="button is-info">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="column">
+            <h3 class="title is-3">Output</h2>
+                <p class="block">The result is output below.</p>
+            {% if winner is defined %}
+                <h4 class="title is-4">Test Result</h4>
+                <div>
+                    <p>segment <span style="font-size: 130%"><strong>{{ winner }}</strong></span>  wins with a probability of <span style="font-size: 130%;"><strong>{{ win_prob }}%</strong></span>.</p>
+                </div>
+                <table>
+                <img src="data:image/png;base64,{{ img_res }}">
+                <img src="data:image/png;base64,{{ img_diff }}">
+            {% endif %}
+        </div>
+    <div class="columns">
 </div>
-<br>
-<hr>
-<footer>
-    <div align="center">
-        <p>Copyright &copy; RightCode Inc. All right reserves.</p>
-        <p>Powered by FastAPI 0.36.0 &amp; starlette 0.12.9</p>
-    </div>
-</footer>
 </body>
 </html>
