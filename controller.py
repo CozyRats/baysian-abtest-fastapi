@@ -14,7 +14,7 @@ def index(request: Request):
 
 # Post
 @app.post("/")
-async def abtest_result_res(request: Request, segA_n:int = Form(), segA_cv:int = Form(), segB_n:int = Form(), segB_cv:int = Form()):
+async def abtest_result_res(request: Request, segA_n:int = Form(), segA_cv:int = Form(), segB_n:int = Form(), segB_cv:int = Form(...)):
     winner, win_prob, beta_A, beta_B, beta_diff, bins = run_baysian_abtest(segA_n, segA_cv, segB_n, segB_cv)
     base64_img_res, base64_img_diff = save_result_image(beta_A, beta_B, beta_diff, bins)
     return templates.TemplateResponse(
@@ -30,4 +30,4 @@ async def abtest_result_res(request: Request, segA_n:int = Form(), segA_cv:int =
             'img_res': base64_img_res,
             'img_diff': base64_img_diff
         }
-    )
+    )    
