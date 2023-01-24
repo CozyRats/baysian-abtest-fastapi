@@ -6,7 +6,7 @@ import base64
 from io import BytesIO
 
 def run_baysian_abtest(segA_n: int, segA_cv: int, segB_n: int, segB_cv: int):
-    # Assuming a Beta distribution as the conjugate prior distribution and a uniform distribution for the prior
+    # Assuming a Beta distribution as the conjugate∂ prior distribution and a uniform distribution for the prior
     alpha_pre = 1
     beta_pre = 1
 
@@ -46,6 +46,7 @@ def save_result_image(beta_A, beta_B, beta_diff, bins):
     
     # plotting abtest results
     fig_res = plt.figure(figsize=(20, 10))
+    plt.rcParams['font.family'] = 'Arial'
     plt.rcParams['font.size'] = 24
     plt.hist(beta_A, bins=bins_list, alpha=0.5, density=True, color='tab:red', label='A')
     plt.hist(beta_B, bins=bins_list, alpha=0.5, density=True, color='tab:blue', label='B')

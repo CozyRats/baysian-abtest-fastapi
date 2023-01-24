@@ -20,12 +20,12 @@
             <div class="block">
                 <form method="post" action="/" class="block">
                     <h4 class="title is-4">SegmentA</h4>
-                    <p>n<input class="input" type="number" name="segA_n" placeholder="1000" value={{ segA_n }}></p>
-                    <p class="block">cv<input class="input" type="number" name="segA_cv" placeholder="100" value={{ segA_cv }}></p>
+                    <p>n<input class="input" type="number" name="segA_n" placeholder="1000" value={{ segA_n }} required="required"></p>
+                    <p class="block">cv<input class="input" type="number" name="segA_cv" placeholder="100" value={{ segA_cv }} required="required"></p>
                     <h4 class="title is-4">SegmentB</h4>
-                    <p>n<input class="input" type="number" name="segB_n" placeholder="1000" value={{ segB_n }}></p>
-                    <p class="block">cv<input class="input" type="number" name="segB_cv" placeholder="100" value={{ segB_cv }}></p>
-                    <button type="submit" class="button is-info">Submit</button>
+                    <p>n<input class="input" type="number" name="segB_n" placeholder="1000" value={{ segB_n }} required="required"></p>
+                    <p class="block">cv<input class="input" type="number" name="segB_cv" placeholder="100" value={{ segB_cv }} required="required"></p>
+                    <button type="submit" class="button is-info is-medium">Run</button>
                 </form>
             </div>
         </div>
