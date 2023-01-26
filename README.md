@@ -4,7 +4,7 @@
 
 ```
 # clone repo
-git clone https://github.com/CozyRats/baysian-abtest-tool.git
+git clone https://github.com/CozyRats/baysian-abtest-fastapi.git
 
 # Start HTML App
 uvicorn run:app --reload
